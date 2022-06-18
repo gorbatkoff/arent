@@ -1,0 +1,6 @@
+.promo{
+    width: fit-content;
+    display: flex;
+    overflow: inherit;
+    padding: 0 15px;
+}

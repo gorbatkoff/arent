@@ -1,0 +1,18 @@
+.moto-cards {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.element {
+    display: flex;
+    align-items: flex-end;
+    width: 280px;
+    height: 326px;
+    padding: 1em;
+    background: #777F95;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}

@@ -1,0 +1,17 @@
+.links{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-gap: 1em;
+    padding-bottom: 40px;
+}
+
+.links a{
+    font-size: 14px;
+    color: #262D3F;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.links a:hover{
+    color: #000;
+}

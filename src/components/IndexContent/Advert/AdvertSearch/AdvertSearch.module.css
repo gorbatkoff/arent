@@ -1,0 +1,19 @@
+.advertSearch h2{
+    font-weight: 600;
+    font-size: 26px;
+    font-style: normal;
+}
+
+.choose-options{
+    padding: 15px 0;    
+}
+
+.car-type{
+    background: inherit;
+}
+
+.car-type button{
+    background-color: #E7EBF3;
+    color: #262D3F;
+    margin-right: 15px;
+}

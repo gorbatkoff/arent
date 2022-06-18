@@ -1,0 +1,11 @@
+.announcements{
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+.description{
+    color: #78839E;
+    font-size: 14px;
+    font-weight: 400;
+}

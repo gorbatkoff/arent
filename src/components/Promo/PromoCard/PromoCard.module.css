@@ -1,0 +1,27 @@
+.card{
+    background-size: cover;
+    width: fit-content;
+    margin-right: 15px;
+}
+
+.card-img{  
+    background-color: #D7DEEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    width: 200px;
+    height: 157px;
+}
+
+.model{
+    color: #316BFE;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.price{
+    color: #262D3F;
+    font-weight: 700;
+    font-size: 16px;
+}

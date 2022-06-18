@@ -1,0 +1,32 @@
+.banner{
+    padding: 20px 0;
+}
+
+.promo {
+    color: #78839E;
+    letter-spacing: 0.15em;
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+.banner-logo {
+    height: 160px;
+    width: 275px;
+    background-color: #D7DEEF;
+    border-radius: 7px;
+}
+
+.banner-title {
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0.5em 0;
+}
+
+.banner-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+}

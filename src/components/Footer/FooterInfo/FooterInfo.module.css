@@ -1,0 +1,43 @@
+.information {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 11% 19% 60%;
+    padding: 40px 0;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright p {
+    color: #78839E;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social a{
+    width: fit-content;
+    margin: 0;
+}
+
+.social img {
+    margin-right: 0.5em;
+}
+
+.faq a {
+    font-size: 14px;
+    color: #78839E;
+}

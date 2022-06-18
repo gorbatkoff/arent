@@ -1,0 +1,34 @@
+.catalog {
+    padding: 20px 0;
+}
+
+.catalog-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.catalog-more {
+    display: flex;
+    align-items: center;
+    color: #316BFE;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.catalog-articles {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.article-logo {
+    width: 280px;
+    height: 185px;
+    background: #D7DEEF;
+    border-radius: 7px;
+}
+
+.article-description {
+    padding-top: 20px;
+    color: #262D3F;
+}
