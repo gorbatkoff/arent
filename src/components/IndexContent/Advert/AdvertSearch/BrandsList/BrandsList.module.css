@@ -1,4 +1,4 @@
-.brands{
+.brands {
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-column-gap: 2em;
@@ -6,11 +6,11 @@
     color: #262D3F;
 }
 
-.brand{
+.brand {
     display: flex;
     justify-content: space-between;
 }
 
-.brand-count{
+.brand-count {
     color: #A7AEBE;
 }
