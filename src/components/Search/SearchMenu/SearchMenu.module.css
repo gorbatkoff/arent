@@ -1,0 +1,67 @@
+.menu {
+    background: #F5F8FD;
+    border-radius: 7px;
+    padding: 25px;
+    padding-bottom: 0px;
+}
+
+.menu-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-gap: 1em;
+    border-radius: 7px;
+}
+
+.inline-filter {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1em;
+}
+
+.menu-filters div {
+    border-radius: 7px;
+}
+
+.menu-filters fieldset {
+    border: none;
+    border-radius: 7px;
+    color: #7E8497;
+    padding: 0;
+}
+
+.date-control {
+    border: none;
+    border-radius: 7px;
+    color: #7E8497;
+    padding: 1em;
+    background: #E8EDF5;
+}
+
+.menu-filters input[type="date" i] {
+    text-transform: uppercase;
+}
+
+.reset-and-show {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+
+.filters {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.filters div {
+    display: flex;
+    align-items: center;
+}
+
+.all {
+    color: #316BFE;
+}
+
+.reset {
+    color: #78839E;
+}

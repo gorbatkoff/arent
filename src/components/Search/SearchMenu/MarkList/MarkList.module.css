@@ -1,0 +1,18 @@
+.markList {
+    padding: 45px 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 2em;
+    grid-row-gap: 1.5em;
+    color: #262D3F;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+}
+
+.brand-count {
+    color: #A7AEBE;
+    margin-left: 1em;
+}

@@ -1,0 +1,39 @@
+.range {
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    grid-gap: 1em;
+    justify-content: space-between;
+}
+
+.range-item {
+    text-align: left;
+    background-color: #E8EDF5;
+    border-radius: 7px;
+    padding: 15px 1em 17px 20px;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+}
+
+.range-item:hover {
+    background: #316BFE;
+    color: #fff ;
+    cursor: pointer;
+}
+
+.range-item div {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.range-item p {
+    padding-top: 3px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+#selected{
+    background-color: #316BFE;
+}
