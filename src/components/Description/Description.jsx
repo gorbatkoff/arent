@@ -3,10 +3,10 @@ import { Container } from '@mui/system'
 
 import styles from './Description.module.css'
 
-export default function Description() {
+export default function Description({description}) {
   return (
     <Container className={styles.container}>
-        <h2>Легковые автомобили в Москве</h2>
+        <h2>{description}</h2>
 
         <p className={styles.description}>7 532 предложения</p>
     </Container>
