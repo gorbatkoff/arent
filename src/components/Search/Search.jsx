@@ -6,6 +6,7 @@ import Title from '../Title/Title';
 import styles from './Search.module.css';
 import SearchMenu from './SearchMenu/SearchMenu';
 import MarkList from './SearchMenu/MarkList/MarkList';
+import AdList from './SearchMenu/AdList/AdList';
 
 export default function Search() {
     return (
@@ -13,6 +14,8 @@ export default function Search() {
             <CollapsedBreadcrumbs/>
             <Title title={'Поиск объявлений в Москве'}/>
             <SearchMenu/>
+            <AdList/>
+            
         </Container>
     )
 }
