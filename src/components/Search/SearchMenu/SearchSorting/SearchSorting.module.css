@@ -1,0 +1,34 @@
+.sort{
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sorting-by{
+    display: flex;
+    align-items: center;
+    width: 35%;
+    justify-content: space-between;
+}
+
+.view{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 13%;
+}
+
+.view-block{
+    background-color: #E8EDF5;
+    padding: 7px;
+    border-radius: 7px;
+    align-self: center;
+    justify-self: center;
+    transition: all 0.3s;
+}
+
+.view-block:hover{
+    background-color: #316BFE;
+    cursor: pointer;
+}
