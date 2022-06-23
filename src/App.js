@@ -27,7 +27,7 @@ function App() {
       <Header></Header>
       <Navbar></Navbar>
       <Search/>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
