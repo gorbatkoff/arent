@@ -37,6 +37,11 @@
     margin-right: 0.5em;
 }
 
+.faq ul{
+    display: flex;
+    list-style-type: none;
+}
+
 .faq a {
     font-size: 14px;
     color: #78839E;
