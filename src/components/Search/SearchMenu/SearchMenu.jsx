@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CloseIcon from '@mui/icons-material/Close';
 import MarkList from './MarkList/MarkList';
 import RangeFilter from './RangeFilter/RangeFilter';
+import SearchSorting from './SearchSorting/SearchSorting';
 
 export default function SearchMenu() {
     return (
@@ -72,6 +73,9 @@ export default function SearchMenu() {
 
             <MarkList/>
             <RangeFilter/>
+            <SearchSorting/>
+
+            
         </div>
     )
 }
