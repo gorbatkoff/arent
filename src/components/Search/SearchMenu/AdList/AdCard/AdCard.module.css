@@ -1,0 +1,104 @@
+.card {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 16px;
+    /* grid-gap: 1em; */
+}
+
+.card-logo {
+    background: #D7DEEF;
+    border-radius: 7px;
+    width: 253px;
+    height: 187px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-info {
+    padding: 5px 0;
+}
+
+.card-title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #316BFE;
+}
+
+.card-info p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+}
+
+.card-characteristics {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #262D3F;
+    padding: 14px 0 5px 0;
+}
+
+.description {
+    width: 50%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+    margin-bottom: 45px;
+}
+
+.card-date {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+}
+
+.card-price-title {
+    color: #78839E;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-price-title span {
+    font-weight: bold;
+    font-size: 20px;
+    color: #262D3F;
+}
+
+.card-price-title p {
+    padding: 12px 0 7px 0;
+    font-weight: 400;
+    color: #78839E;
+    font-size: 14px;
+}
+
+.ad-rating {
+    display: flex;
+    align-items: center;
+    color: #262D3F;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px 0 20px 0;
+}
+
+.seller-status {
+    background: #B9D2FA;
+    border-radius: 7px;
+    color: #316BFE;
+    display: flex;
+    align-items: center;
+    padding: 7px 9px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.add-to-favorite{
+    padding: 0 20px;
+}
