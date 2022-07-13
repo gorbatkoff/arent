@@ -1,0 +1,118 @@
+.characteristic {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.characteristic-list div {
+    padding: 7px 0;
+}
+
+.type-of-insurance {
+    background: #F5F8FD;
+    border-radius: 7px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type-of-insurance img {
+    background: #25CA5D;
+    border-radius: 12px;
+    padding: 9px 10px;
+}
+
+.image-and-insurance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.insurance {
+    padding: 25px;
+    margin: 50px 0;
+    background: #F5F8FD;
+    border-radius: 7px;
+}
+
+.insurance p {
+    color: #78839E;
+    padding: 12px 0 30px 0;
+}
+
+.insurance button {
+    width: 100%;
+    padding: 14px;
+}
+
+.checking {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.characteristic-points {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+}
+
+
+.point-item {
+    display: flex;
+    color: #316BFE;
+    padding-top: 13px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.check-by-vin button {
+    width: 100%;
+}
+
+.description h2 {
+    padding: 60px 0 30px 0;
+}
+
+.description div {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 145%;
+}
+
+.additional {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 1em;
+}
+
+.additional div {
+    padding: 4px 0;
+    color: #262D3F;
+}
+
+.ask-seller button {
+    background: #E4EEFA;
+    border-radius: 22px;
+    padding: 13px 17px;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: #316BFE;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.promo-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E
+}

@@ -1,0 +1,11 @@
+.buttons {
+    padding: 1em 0;
+}
+
+.buttons button {
+    margin-right: 1em;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: none;
+}

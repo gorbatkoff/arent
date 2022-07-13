@@ -1,0 +1,72 @@
+.main{
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-gap: 1em;
+}
+
+.price{
+    padding-top: 2em;
+}
+
+.author{
+    display: flex;
+    justify-content: space-between;
+}
+
+.author-rating{
+    display: flex;
+    width: 160px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ad-info{
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.ad-author{
+    padding-bottom: 5px;
+}
+
+.author-role{
+    padding: 5px 0;
+}
+
+.count-of-deal{
+    color: #316BFE;
+    padding: 10px 0 5px 0;
+    font-weight: 500;
+}
+
+.count-of-ads{
+    font-weight: 500;
+    color: #316BFE;
+}
+
+.ad-index{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 250px;
+    margin: 130px 0;
+    color: gray;
+}
+
+.viewers{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.viewers div{
+    margin-left: 5px;
+}
+
+.ad-number{
+    display: flex;
+    align-items: center;
+}
