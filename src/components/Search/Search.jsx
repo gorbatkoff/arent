@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import CollapsedBreadcrumbs from '../BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import Title from '../Title/Title';
 
 import styles from './Search.module.css';
@@ -11,7 +11,7 @@ import AdList from './SearchMenu/AdList/AdList';
 export default function Search() {
     return (
         <Container sx={{ padding: "35px 0" }}>
-            <CollapsedBreadcrumbs/>
+            <BreadCrumbs/>
             <Title title={'Поиск объявлений в Москве'}/>
             <SearchMenu/>
             <AdList/>
