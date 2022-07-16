@@ -1,0 +1,98 @@
+section {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-column-gap: 1em;
+}
+
+.choose-transport {
+    padding: 25px 0 50px 0;
+}
+
+.choose-transport button,
+.car-body-type button {
+    margin-right: 15px;
+}
+
+.enter-model {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.brand-search-input {
+    padding: 20px 0 40px 0;
+}
+
+.model-search-input h3,
+.year-of-manufacture h3,
+.car-body-type h3,
+.engine h3,
+.wheel-drive h3,
+.transmission h3,
+.modification h3,
+.pick-color h3,
+.mileage h3,
+.goverment-numbers h3,
+.transport-passport h3,
+.date-of-purchase h3,
+.upload-photo h3{
+    padding: 60px 0 20px 0;
+}
+
+.year-of-manufacture button,
+.engine button,
+.wheel-drive button,
+.transmission button,
+.transport-passport button{
+    padding: 12px 23px !important;
+    margin-right: 12px !important;
+}
+
+.type-of-engine {
+    display: flex;
+}
+
+.pick-color div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background: #FABE00;
+}
+
+.pick-color button {
+    background: none;
+    border: none;
+    outline: none;
+    margin-right: 15px;
+}
+
+.pick-color button:hover {
+    cursor: pointer;
+}
+
+.pick-color button:focus {
+    border-bottom: 3px solid #0275d8;
+    border-top: 3px solid #0275d8;
+}
+
+.number{
+    width: 600px;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.goverment-input{
+    margin-top: 1em;
+}
+
+.trasnport-search {
+    padding: 25px 0;
+}
+
+.choosing-date{
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-column-gap: 1em;
+}

@@ -1,0 +1,76 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 45%;
+}
+
+.title h2 {
+    padding: 0 !important;
+}
+
+.profile-id {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #78839E;
+    align-items: flex-end;
+}
+
+.profile-edit {
+    background: #F5F8FD;
+    padding: 25px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-column-gap: 1em;
+}
+
+.photo-and-exit{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.photo {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #D7DEEF;
+    border-radius: 7px;
+    width: 170px;
+    height: 170px;
+}
+
+.exit {
+    display: flex;
+    width: 50%;
+    color: #FF5252;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.edit h3{
+    padding-bottom: 0.5em;
+}
+
+.link img {
+    padding: 0px 10px 15px 0;
+}
+
+.input-form input {
+    background: #D8E6FF;
+    border-radius: 7px;
+    width: 367px;
+}
+
+.autocomplete-form {
+    width: 390px;
+}
+
+.input-form,
+.autocomplete-form {
+    padding-bottom: 10px;
+    width: 395px;
+}
+
+.edit h4 {
+    padding: 20px 0 10px 0;
+}

@@ -1,0 +1,18 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 45%;
+}
+
+.title h2 {
+    padding: 0 !important;
+}
+
+.profile-id {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #78839E;
+    align-items: flex-end;
+}

@@ -1,0 +1,107 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 200px;
+}
+
+.title h2 {
+    padding: 0 !important;
+}
+
+.profile-id {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #78839E;
+    align-items: flex-end;
+}
+
+.profile {
+    background: #F5F8FD;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-photo {
+    width: 155px;
+    height: 155px;
+    background: #D7DEEF;
+    border-radius: 7px;
+}
+
+.profile-info {
+    width: 80%;
+}
+
+.name-and-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.name-and-settings button {
+    padding: 12px 15px;
+}
+
+.seller-status {
+    background: #B9D2FA;
+    border-radius: 7px;
+    color: #316BFE;
+    display: flex;
+    align-items: center;
+    padding: 4px 9px;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.profile-rating {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    padding: 25px 0;
+    align-items: center;
+}
+
+.author-rating {
+    display: flex;
+    width: 160px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.count-of-success-deal,
+.count-of-ads {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #316BFE;
+}
+
+.profile-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    padding: 20px 0 30px 0;
+}
+
+.profile-data p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+}
+
+.profile-data .item {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #262D3F;
+    padding-top: 8px;
+}
