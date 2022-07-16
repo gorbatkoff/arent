@@ -12,13 +12,13 @@ export default function BreadCrumbs() {
         <Link underline="hover" color="inherit" href="/">
           Arent
         </Link>
-        <Link
+        {/* <Link
           underline="hover" color="inherit"
           href="/material-ui/getting-started/installation/"
         >
           Аренда легковых автомобилей
-        </Link>
-        <Typography color="text.primary">Москва</Typography>
+        </Link> */}
+        <Typography color="text.primary">Создание объявления</Typography>
       </Breadcrumbs>
     </div>
   );
