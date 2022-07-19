@@ -9,6 +9,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import PromoCard from '../../../Promo/PromoCard/PromoCard';
 
 import { green, grey } from '@mui/material/colors';
+import BasicButtons from '../../../../UI/Button/BasicButton';
 
 export default function Characteristic() {
     return (
@@ -69,7 +70,8 @@ export default function Characteristic() {
                 <p>Заполните заявку, которую сможете отправить в
                     несколько страховых агенств и оформить её онлайн.</p>
 
-                <AdvertButton text="Оформить страховку" />
+                {/* <AdvertButton text="Оформить страховку" /> */}
+                <BasicButtons text="Оформить страховку" />
             </div>
 
             <div className={styles['check-by-vin']}>
@@ -116,7 +118,8 @@ export default function Characteristic() {
                         <div>Проверка на работу в такси</div>
                     </div>
                 </div>
-                <AdvertButton text="Купить полный отчёт" />
+                {/* <AdvertButton text="Купить полный отчёт" /> */}
+                <BasicButtons text="Купить полный отчёт" />
             </div>
 
             <div className={styles.description}>
