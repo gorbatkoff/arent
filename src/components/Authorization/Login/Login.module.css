@@ -1,0 +1,70 @@
+.login {
+    padding: 30px;
+}
+
+.type-of-login {
+    width: 180px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.type-of-login p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    cursor: pointer;
+    color: #316BFE;
+}
+
+.input {
+    padding-top: 30px;
+}
+
+.input-container {
+    padding-bottom: 18px;
+}
+
+.input-container input {
+    background: #E8EDF5;
+}
+
+.remember-and-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 31px;
+}
+
+.forgot-password {
+    font-size: 15px;
+    line-height: 17px;
+    color: #316BFE;
+    margin: 0;
+}
+
+.login-with {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7E8497;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.link {
+    padding-top: 20px;
+}
+
+.link img {
+    padding: 0px 10px 15px 0;
+}
+
+.policy{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #7E8497;
+}
