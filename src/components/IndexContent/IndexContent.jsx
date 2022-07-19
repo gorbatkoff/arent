@@ -10,6 +10,7 @@ import Catalog from './Catalog/Catalog';
 function IndexContent() {
   return (
     <Container sx={{padding: "100px 0"}}>
+      
         <Advert/>
         <RecentlyWatch/>
         <CommercialTransport/>
