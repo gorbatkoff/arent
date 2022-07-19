@@ -1,3 +1,5 @@
+import { React, useState, useEffect } from 'react';
+
 import './App.css';
 import AdvertPage from './components/AdvertPage/AdvertPage';
 import CreateAdvert from './components/CreateAdvert/CreateAdvert';
@@ -13,18 +15,51 @@ import Promo from './components/Promo/Promo';
 import Search from './components/Search/Search';
 import SearchMenu from './components/Search/SearchMenu/SearchMenu';
 import Profile from './components/Profile/Profile';
+import Wallet from './components/Wallet/Wallet';
+import Booking from './components/Booking/Booking';
+import Title from './components/Title/Title';
+import { Container } from '@mui/system';
+
+import axios from 'axios';
 
 function App() {
+
+  const [allAdverts, setAllAdverts] = useState([]);
+
+  const api = axios.create({
+    baseURL: 'http://62.113.113.106/api/'
+  });
+
+
+  const getAdverts = async () => { // function of gettings adverts
+    const response = await api.get(`all_ads/`);
+
+    try {
+      setAllAdverts(response.data);
+    }
+
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getAdverts();
+  }, []);
+
   return (
+
     <div>
       {/* Страница: Main  */}
 
-      {/* <Header></Header>
+      <Header></Header>
       <Navbar></Navbar>
-      <Description description="Легковые автомобили в Москве"></Description>
+      <Container>
+        <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
+      </Container>
       <Promo></Promo>
       <IndexContent></IndexContent>
-      <Footer/> */}
+      <Footer />
 
       {/* Страница: Search */}
 
@@ -61,6 +96,19 @@ function App() {
       {/* <Header></Header>
       <Navbar></Navbar>
       <Profile /> */}
+
+      {/* Страница Wallet */}
+      {/* <Header></Header>
+      <Navbar></Navbar>
+      <Wallet />
+      <Footer />  */}
+
+      {/* Страница Booking */}
+      {/* <Header></Header>
+      <Navbar></Navbar>
+      <Booking />
+      <Footer /> */}
+
     </div>
   );
 }
