@@ -1,0 +1,105 @@
+.wallet {
+    padding: 30px 20px;
+    background: #F5F8FD;
+    margin: 20px 0;
+    border-radius: 7px;
+}
+
+.wallet-manage {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.balance-of-wallet h4 {
+    padding-bottom: 10px;
+    font-size: 18px;
+
+}
+
+.replenish-of-wallet h4 {
+    padding-bottom: 17px;
+    font-size: 18px;
+}
+
+.balance {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    padding-bottom: 10px;
+    color: #262D3F;
+}
+
+.wallet p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #316BFE;
+}
+
+.replenish {
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+    align-items: center;
+}
+
+.replenish button {
+    /* height: 42px; */
+    width: 140px;
+}
+
+.replenish input {
+    width: 214px;
+}
+
+.last-operations {
+    padding: 30px 0;
+}
+
+.title-and-report {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-and-report h4 {
+    padding-bottom: 17px;
+    font-size: 18px;
+}
+
+
+.operation {
+    display: grid;
+    grid-template-columns: 45% 20% 30% 15%;
+    padding: 7px 0;
+    align-items: center;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #262D3F;
+}
+
+.date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #78839E;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.amount {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #262D3F;
+}
