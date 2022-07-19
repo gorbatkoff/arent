@@ -7,16 +7,106 @@ import StarIcon from '@mui/icons-material/Star';
 import Avatar from '@mui/material/Avatar';
 
 import styles from './AdvertMain.module.css';
-import DatePicker from './DatePicker/DatePicker';
+
 import ImageBlock from './ImageBlock/ImageBlock';
+// import DatePicker from './DatePicker/DatePicker';
 
 import AdvertButton from './AdvertButton';
 
 import Ava from '../../../images/avatars/avatar.jpg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Characteristic from './Characteristic/Characteristic';
+import BasicButtons from '../../../UI/Button/BasicButton';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
 
 function AdvertMain() {
+
+    const getMinDay = () => {
+        let year = new Date().getFullYear();
+        let month = new Date().getMonth() + 1;
+        let day = new Date().getDate();
+
+        if (+month < 10) month = "0" + month;
+
+        return `${year}-${month}-${day}`;
+    }
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const [state, setState] = React.useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <Box
+            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List>
+                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    <ListItem key={text} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+            <Divider />
+            <List>
+                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                    <ListItem key={text} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+            </List>
+        </Box>
+    );
+
     return (
         <div className={styles.main}>
             <div className={styles['advert-main']}>
@@ -34,13 +124,95 @@ function AdvertMain() {
                     >/час</span>
                 </div>
 
-                <DatePicker />
+                <div className={styles['dates-block']}>
+                    <div>Данное авто забронировано на следующие дни</div>
+                    <div className={styles.dates}>
+                        <div>08.07.22</div>
+                        <div>09.07.22</div>
+                    </div>
+                </div>
 
                 <div className={styles['offer-buttons']}>
-                    <AdvertButton text="Написать продавцу"/>
-                    <br/>
-                    <br/>
-                    <AdvertButton text="Забронировать" />
+                    {/* <BasicButtons text="Написать продавцу" style={{ width: "100%" }} onClick={toggleDrawer('right', true)} /> */}
+                    <React.Fragment key='right'>
+                        <Button onClick={toggleDrawer('right', true)}
+                            className={styles['advert-button']}
+                            sx={{
+                                background: "#316BFE",
+                                borderRadius: "7px",
+                                color: "white",
+                                textTransform: "none",
+                                padding: "15px 27px",
+                                fontSize: "14px"
+                            }}>Написать продавцу</Button>
+                        <Drawer
+                            anchor='right'
+                            open={state['right']}
+                            onClose={toggleDrawer('right', false)}
+                        >
+                            {list('right')}
+                        </Drawer>
+                    </React.Fragment>
+                    <br />
+                    <br />
+
+                    <React.Fragment>
+                        <Button onClick={handleClickOpen}
+                            className={styles['advert-button']}
+                            sx={{
+                                background: "#316BFE",
+                                borderRadius: "7px",
+                                color: "white",
+                                textTransform: "none",
+                                padding: "15px 27px",
+                                fontSize: "14px"
+                            }}>
+                            Забронировать
+                        </Button>
+
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">
+                                <h3>Выберите даты бронирования авто</h3>
+                            </DialogTitle>
+                            <DialogContent>
+                                <DialogContentText id="alert-dialog-description">
+                                    <div>
+                                        <h4>Выбрать период</h4>
+
+                                        <div className={styles['date-picker']}>
+                                            <div>
+
+                                                С <input type="date"
+                                                    min={getMinDay()} max="2023-12-31"
+                                                />
+                                            </div>
+                                            <div>По <input type="date" /></div>
+                                        </div>
+
+                                        <h4>Выбрать определённую дату</h4>
+
+                                        <div className={styles['date-picker']}>
+                                            <input type="date"
+                                                min={getMinDay()} max="2023-12-31"
+                                            />
+                                        </div>
+                                    </div>
+                                </DialogContentText>
+                            </DialogContent>
+                            <DialogActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <Button onClick={handleClose}>Отмена</Button>
+                                <Button onClick={handleClose} autoFocus variant="contained" sx={{background: "#316BFE"}}>
+                                    Запросить бронь
+                                </Button>
+                            </DialogActions>
+                        </Dialog>
+                    </React.Fragment>
+                    {/* <BasicButtons text="Забронировать" style={{ width: "400px" }} /> */}
                 </div>
 
                 <div className={styles['ad-info']}>
