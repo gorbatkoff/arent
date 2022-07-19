@@ -8,6 +8,41 @@
     padding-top: 2em;
 }
 
+.dates-block{
+    display: block;
+    padding: 1em 0;
+    width: 50%;
+}
+
+.dates{
+    padding: 1em 0;
+    color: #FF5252;
+    font-weight: bold;
+    display: flex;
+}
+
+.dates div{
+    margin-top: 10px;
+    /* margin-bootm: 10px; */
+    margin-right: 10px;
+    padding: 10px;
+    background: #FFDEDE;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.advert-button:hover{
+    background: #4d7df5 !important;
+}
+
+.offer-buttons{
+    padding-bottom: 2em;
+}
+
+.offer-buttons button{
+    width: 255px;
+}
+
 .author{
     display: flex;
     justify-content: space-between;
@@ -69,4 +104,23 @@
 .ad-number{
     display: flex;
     align-items: center;
+}
+
+.date-picker {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0;
+    font-weight: bold;
+}
+
+.date-picker input{
+    padding: 5px 20px;
+    background-color: #316BFE;
+    border: none;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 8px;
+    font-size: 16px;
 }
