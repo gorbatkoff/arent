@@ -1,0 +1,96 @@
+.advert {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: 15% 30% 15% 30%;
+    align-self: center;
+    grid-column-gap: 10px;
+    padding: 10px 0 0 0 ;
+}
+
+.advert:hover {
+    background: rgba(49, 107, 254, 0.1);
+}
+
+.logo {
+    background: #D7DEEF;
+    border-radius: 7px;
+    width: 166px;
+    height: 122px;
+}
+
+.booking-info h4 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #316BFE;
+    padding-bottom: 5px;
+}
+
+.booking-info p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+    padding-bottom: 15px;
+}
+
+.booking-pattern {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #262D3F;
+    padding-bottom: 5px;
+}
+
+.description {
+    width: 300px;
+    font-weight: 400 !important;
+}
+
+.price {
+    padding-bottom: 12px;
+}
+
+.price-and-seller p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #78839E;
+    padding-bottom: 5px;
+}
+
+.author-rating {
+    display: flex;
+    align-items: center;
+    /* padding-bottom: px; */
+}
+
+.seller-status {
+    background: #B9D2FA;
+    border-radius: 7px;
+    color: #316BFE;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.date-of-booking{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.booked {
+    color: #000;
+    font-weight: 600;
+}
+
+.dates {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+    padding: 10px 0;
+    color: #316BFE;
+}
