@@ -1,0 +1,16 @@
+.booking {
+    padding: 30px 20px 0px 20px;
+    background: #F5F8FD;
+    margin: 20px 0;
+    border-radius: 7px;
+}
+
+.sorting{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-ads{
+    padding: 25px 0;
+}
