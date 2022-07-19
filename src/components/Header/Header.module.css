@@ -1,14 +1,19 @@
 header {
     background-color: #262D3F;
+}
+
+.header {
+    background-color: #262D3F;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 200px;
+    padding: 15px 0;
     height: 70px;
-    width: 100%;
+    /* width: 1000px; */
+    margin: 0 !important;
 }
 
 .logo {
@@ -16,7 +21,9 @@ header {
     align-items: center;
 }
 
-.logo img, svg, h1{
+.logo img,
+svg,
+h1 {
     margin-right: 2px;
 }
 
@@ -26,7 +33,7 @@ header {
     font-size: 26px;
 }
 
-.search input{
+.search input {
     background-color: #40485A;
     border: none;
     outline: none;
@@ -35,12 +42,43 @@ header {
     width: 100%
 }
 
-.search input::placeholder{
+.search input::placeholder {
     color: #7E8497;
 }
 
 .menu {
     display: grid;
-    grid-template-columns: repeat(3, 25%);
-    grid-gap: 0.5em;
+    grid-template-columns: repeat(3, 30%);
+    grid-gap: 0em;
+}
+
+
+/* Drawer list styles */
+
+.drawer-block {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    padding: 40px 200px;
+    grid-column-gap: 20px;
+}
+
+.drawer-list-block{
+    padding-bottom: 35px;
+}
+
+.drawer-list h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 12px 0;
+    color: #262D3F;
+}
+
+.drawer-list a {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #262D3F;
+    padding: 5px 0;
 }
