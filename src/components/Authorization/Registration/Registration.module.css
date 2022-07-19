@@ -1,0 +1,22 @@
+.registration {
+    padding: 35px;
+    height: 300px;
+}
+
+.input {
+    padding: 30px 0;
+}
+
+.already-have-account{
+    padding: 20px 0;
+}
+
+.already-have-account p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #316BFE;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+}
