@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import Container from '@mui/material/Container';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import Title from '../Title/Title';
-import { Button } from '@mui/material';
+import { Button, Input, TextareaAutosize } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import FormGroup from '@mui/material/FormGroup';
@@ -433,8 +433,30 @@ function CreateAdvert() {
                     <div className={styles['upload-photo']}>
                         <h3>Фотографии</h3>
 
-                        <p style={{color: "#78839E", width: "500px"}}>На фотографиях не должно быть контактов, надписей, людей,
+                        <p style={{ color: "#78839E", width: "500px" }}>На фотографиях не должно быть контактов, надписей, людей,
                             водяных знаков и любых посторонних предметов.</p>
+                    </div>
+
+                    <div className={styles.description}>
+                        <h3>Описание</h3>
+
+                        <p>Не указывайте в этом поле электронную почту, номер телефона, цену, адрес места
+                            осмотра и не предлайгайте какие-либо услуги - такое объявление не пройдет модерацию.</p>
+                    
+                        {/* <TextField placeholder="Честно опишите достоинства и недостатки своего автомобиля."
+                        sx={{ background: "#E8EDF5", borderRadius: "7px", minHeight: "165px", width: "843px"}}>
+
+                        </TextField> */}
+                        <TextareaAutosize style={{ background: "#E8EDF5", borderRadius: "7px", minHeight: "165px", width: "843px", border: "none", outline: "none", padding: "15px 20px", fontSize: "16px", color: "#595b61"}}>
+
+                        </TextareaAutosize>
+                    </div>
+
+                    <div className={styles.contacts}>
+
+                        <h3>Контакты</h3>
+                        
+                        <h4>Как к вам обращаться?</h4>
                     </div>
                 </div>
 
