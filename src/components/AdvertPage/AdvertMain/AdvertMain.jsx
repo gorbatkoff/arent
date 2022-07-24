@@ -35,7 +35,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 
-function AdvertMain() {
+function AdvertMain({advert}) {
 
     const getMinDay = () => {
         let year = new Date().getFullYear();
@@ -118,7 +118,8 @@ function AdvertMain() {
 
             <div className={styles['advert-info']}>
                 <div className={styles.price}><span style={{ fontWeight: "bold", fontSize: "26px", color: "#262D3F" }}
-                >2500₽</span>
+                >{advert.price}₽</span>
+                {/* >2500₽</span> */}
                     <span style={{ fontWeight: "700", fontSize: "20px", color: "#78839E" }}
 
                     >/час</span>
@@ -264,7 +265,7 @@ function AdvertMain() {
 
             </div>
 
-            <Characteristic />
+            <Characteristic advert={advert}/>
         </div>
     )
 }
