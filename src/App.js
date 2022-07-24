@@ -1,5 +1,7 @@
 import { React, useState, useEffect } from 'react';
 
+import { Routes, Route, Link } from 'react-router-dom';
+
 import './App.css';
 import AdvertPage from './components/AdvertPage/AdvertPage';
 import CreateAdvert from './components/CreateAdvert/CreateAdvert';
@@ -25,6 +27,7 @@ import axios from 'axios';
 function App() {
 
   const [allAdverts, setAllAdverts] = useState([]);
+  const [token, setToken] = useState('');
 
   const api = axios.create({
     baseURL: 'http://62.113.113.106/api/'
@@ -36,6 +39,8 @@ function App() {
 
     try {
       setAllAdverts(response.data);
+
+      console.log(allAdverts);
     }
 
     catch (err) {
@@ -52,14 +57,14 @@ function App() {
     <div>
       {/* Страница: Main  */}
 
-      <Header></Header>
-      <Navbar></Navbar>
+      {/* <Header></Header> */}
+      {/* <Navbar></Navbar>
       <Container>
         <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
       </Container>
       <Promo></Promo>
       <IndexContent></IndexContent>
-      <Footer />
+      <Footer /> */}
 
       {/* Страница: Search */}
 
@@ -70,8 +75,8 @@ function App() {
 
       {/* Страница: Advert Page */}
 
-      {/* <Header></Header>
-      <Navbar></Navbar>
+      {/* <Header></Header> */}
+      {/* <Navbar></Navbar>
       <AdvertPage />
       <Footer /> */}
 
@@ -108,6 +113,19 @@ function App() {
       <Navbar></Navbar>
       <Booking />
       <Footer /> */}
+
+      <Routes>
+        <Route path="/" element={[
+          <Container>
+            <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
+          </Container>,
+          <Promo />,
+          <IndexContent />]} />
+
+          <Route path="/create" element={<CreateAdvert/>} />
+          <Route path="/advert" element={<AdvertPage/>} />
+          <Route path="/advert/:id" element={<AdvertPage/>} />
+      </Routes>
 
     </div>
   );
