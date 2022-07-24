@@ -35,7 +35,8 @@ section {
 .goverment-numbers h3,
 .transport-passport h3,
 .date-of-purchase h3,
-.upload-photo h3{
+.upload-photo h3,
+.description h3 {
     padding: 60px 0 20px 0;
 }
 
@@ -43,7 +44,7 @@ section {
 .engine button,
 .wheel-drive button,
 .transmission button,
-.transport-passport button{
+.transport-passport button {
     padding: 12px 23px !important;
     margin-right: 12px !important;
 }
@@ -75,7 +76,7 @@ section {
     border-top: 3px solid #0275d8;
 }
 
-.number{
+.number {
     width: 600px;
     padding: 30px 0;
     display: flex;
@@ -83,7 +84,7 @@ section {
     justify-content: space-between;
 }
 
-.goverment-input{
+.goverment-input {
     margin-top: 1em;
 }
 
@@ -91,8 +92,16 @@ section {
     padding: 25px 0;
 }
 
-.choosing-date{
+.choosing-date {
     display: grid;
     grid-template-columns: 30% 30%;
     grid-column-gap: 1em;
+}
+
+.description p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    padding-bottom: 30px;
+    color: #78839E;
 }
