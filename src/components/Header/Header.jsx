@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react'
 import styles from './Header.module.css';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -208,9 +211,11 @@ export default function Header() {
                             {list('top')}
                         </Drawer>
 
+                        <Link to="/" style={{display: 'flex', width: 'fit-content', margin: '0', alignItems: "center"}}>
                         <img src={logo} alt="" />
 
-                        <h1 className={styles.head}><a href="#">ARENT</a></h1>
+                        <h1 className={styles.head} styles={{width: 'fit-content'}}>ARENTUM</h1>
+                        </Link>
                     </div>
 
                     <Input></Input>
@@ -338,7 +343,7 @@ export default function Header() {
                                     Профиль
                                 </MenuItem>
 
-                                <MenuItem sx={{ color: "red" }}>
+                                <MenuItem sx={{ color: "red" }} onClick={() => setIsAutorized(false)}>
                                     <ListItemIcon>
                                         <Logout fontSize="small" color="error" />
                                     </ListItemIcon>
@@ -354,7 +359,7 @@ export default function Header() {
                                     textTransform: "capitalize",
                                     background: "#E7EBF3",
                                     color: "#262D3F",
-                                    padding: "6px 2%",
+                                    padding: "11px 26px",
                                     fontSize: "14px",
                                     borderRadius: "7px"
                                 }}
@@ -384,19 +389,21 @@ export default function Header() {
                                     <Button onClick={handleClickClose}>Cancel</Button>
                                     <Button onClick={handleClickClose}>Subscribe</Button>
                                 </DialogActions> */}
-                                <Authorization />
+                                <Authorization setIsAutorized={setIsAutorized} />
                             </Dialog>
                         </React.Fragment>}
-
-                    <Button variant="contained" size="small" color="primary"
-                        sx={{
-                            textTransform: "capitalize",
-                            color: "#fff",
-                            padding: "6px 2%",
-                            fontSize: "14px",
-                            borderRadius: "7px"
-                        }}
-                    >Разместить объявление</Button>
+                    <Link to="/create" style={{width: 'fit-content'}}>
+                        <Button variant="contained" size="small" color="primary"
+                            sx={{
+                                textTransform: "none",
+                                color: "#fff",
+                                padding: "11px 20px",
+                                fontSize: "14px",
+                                borderRadius: "7px",
+                                width: "fit-content"
+                            }}
+                        >Разместить объявление</Button>
+                    </Link>
                 </div>
             </Container>
         </header>
