@@ -11,7 +11,7 @@ import PromoCard from '../../../Promo/PromoCard/PromoCard';
 import { green, grey } from '@mui/material/colors';
 import BasicButtons from '../../../../UI/Button/BasicButton';
 
-export default function Characteristic() {
+export default function Characteristic({ advert }) {
     return (
         <div>
             <h2>Характеристики</h2>
@@ -27,11 +27,11 @@ export default function Characteristic() {
                 </div>
 
                 <div className={styles['characteristic-list']} style={{ textAlign: 'right' }}>
-                    <div>2000</div>
+                    <div>{advert.year_of_car_purchase}</div>
                     <div>E53 (1999—2003)</div>
                     <div>4.8 л / 355 л.с. / Бензин</div>
                     <div>Автоматическая</div>
-                    <div>214 000 км</div>
+                    <div>{advert.mileage} км</div>
                     <div>Белый</div>
                 </div>
 
