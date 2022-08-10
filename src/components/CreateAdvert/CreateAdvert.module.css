@@ -8,9 +8,14 @@ section {
     padding: 25px 0 50px 0;
 }
 
-.choose-transport button,
-.car-body-type button {
-    margin-right: 15px;
+.filling button {
+    /* margin-right: 1em;
+    padding: 12px 24px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center; */
 }
 
 .enter-model {
@@ -36,17 +41,10 @@ section {
 .transport-passport h3,
 .date-of-purchase h3,
 .upload-photo h3,
-.description h3 {
+.description h3,
+.contacts h3,
+.price h3 {
     padding: 60px 0 20px 0;
-}
-
-.year-of-manufacture button,
-.engine button,
-.wheel-drive button,
-.transmission button,
-.transport-passport button {
-    padding: 12px 23px !important;
-    margin-right: 12px !important;
 }
 
 .type-of-engine {
@@ -104,4 +102,31 @@ section {
     line-height: 19px;
     padding-bottom: 30px;
     color: #78839E;
+}
+
+.contacts h4 {
+    padding: 10px 0 0 0;
+}
+
+.contact-form {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 10px 0;
+}
+
+.contact-description {
+    margin-left: 1em;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7E8497
+}
+
+.checkbox-form p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-left: 2em;
+    color: #7E8497;
+    padding-bottom: 1em;
 }
