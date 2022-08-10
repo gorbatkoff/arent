@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Header.module.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -51,13 +51,25 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Authorization from '../Authorization/Authorization';
+import Chat from '../Chat/Chat';
 
 
 
 
-export default function Header() {
+export default function Header({ setToken }) {
+
+    const isTokenExist = () => {
+        if (document.cookie.indexOf("token") > 0) setIsAutorized(true);
+    }
+
+    useEffect(() => {
+        isTokenExist();
+    }, []);
 
     const [isAutorized, setIsAutorized] = useState(false);
+
+
+
 
     // Modal window of log in
     const [isOpen, setOpen] = React.useState(false);
@@ -100,7 +112,7 @@ export default function Header() {
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
+            // onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <div className={styles['drawer-block']}>
@@ -189,6 +201,16 @@ export default function Header() {
         </Box>
     );
 
+    const chat = (anchor) => (
+        <Box
+            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 900 }}
+            role="presentation"
+            // onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <Chat />
+        </Box>
+    );
 
     // Return
 
@@ -211,10 +233,10 @@ export default function Header() {
                             {list('top')}
                         </Drawer>
 
-                        <Link to="/" style={{display: 'flex', width: 'fit-content', margin: '0', alignItems: "center"}}>
-                        <img src={logo} alt="" />
+                        <Link to="/" style={{ display: 'flex', width: 'fit-content', margin: '0', alignItems: "center" }}>
+                            <img src={logo} alt="" />
 
-                        <h1 className={styles.head} styles={{width: 'fit-content'}}>ARENTUM</h1>
+                            <h1 className={styles.head} styles={{ width: 'fit-content' }}>ARENTUM</h1>
                         </Link>
                     </div>
 
@@ -229,11 +251,20 @@ export default function Header() {
                         <IconButton aria-label="Избранное">
                             <FavoriteIcon sx={{ color: blueGrey.A200 }}></FavoriteIcon>
                         </IconButton>
-                        <IconButton aria-label="Сообщения">
+
+                        <IconButton aria-label="Сообщения" title="Сообщения" onClick={toggleDrawer('right', true)}>
                             <Badge badgeContent={4} color="primary">
                                 <ChatBubbleIcon sx={{ color: blueGrey.A200 }}></ChatBubbleIcon>
                             </Badge>
                         </IconButton>
+
+                        <Drawer
+                            anchor='right'
+                            open={state['right']}
+                            onClose={toggleDrawer('right', false)}
+                        >
+                            {chat('right')}
+                        </Drawer>
                     </div>
 
                     {isAutorized ?
@@ -305,42 +336,64 @@ export default function Header() {
                                     <ListItemIcon>
                                         <FavoriteBorderOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Избранные объявления
+                                    <Link to="/favorite-ads"
+                                        style={{ color: 'black' }}
+                                    >
+                                        Избранные объявления
+                                    </Link>
                                 </MenuItem>
 
                                 <MenuItem>
                                     <ListItemIcon>
                                         <SavedSearchOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Избранные поиски
+                                    <Link to="/favorite-searchs"
+                                        style={{ color: 'black' }}
+                                    >
+                                        Избранные поиски
+                                    </Link>
                                 </MenuItem>
 
                                 <MenuItem>
                                     <ListItemIcon>
                                         <ChatBubbleOutlineOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Чаты
+                                    <Link to="/chats"
+                                        style={{ color: 'black' }}
+                                    >
+                                        Чаты
+                                    </Link>
                                 </MenuItem>
 
                                 <MenuItem>
                                     <ListItemIcon>
                                         <VpnKeyOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Бронирования
+                                    <Link to="/booking"
+                                        style={{ color: 'black' }}
+                                    >
+                                        Бронирования
+                                    </Link>
                                 </MenuItem>
 
                                 <MenuItem>
                                     <ListItemIcon>
                                         <AccountBalanceWalletOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Кошелёк
+                                    <Link to='/wallet'
+                                        style={{ color: 'black' }}
+                                    >Кошелёк</Link>
                                 </MenuItem>
 
                                 <MenuItem>
                                     <ListItemIcon>
                                         <PersonOutlineOutlinedIcon fontSize="small" />
                                     </ListItemIcon>
-                                    Профиль
+                                    <Link to="/profile"
+                                        style={{ color: 'black' }}
+                                    >
+                                        Профиль
+                                    </Link>
                                 </MenuItem>
 
                                 <MenuItem sx={{ color: "red" }} onClick={() => setIsAutorized(false)}>
@@ -389,10 +442,10 @@ export default function Header() {
                                     <Button onClick={handleClickClose}>Cancel</Button>
                                     <Button onClick={handleClickClose}>Subscribe</Button>
                                 </DialogActions> */}
-                                <Authorization setIsAutorized={setIsAutorized} />
+                                <Authorization setIsAutorized={setIsAutorized} setToken={setToken} />
                             </Dialog>
                         </React.Fragment>}
-                    <Link to="/create" style={{width: 'fit-content'}}>
+                    <Link to="/create" style={{ width: 'fit-content' }}>
                         <Button variant="contained" size="small" color="primary"
                             sx={{
                                 textTransform: "none",
@@ -400,7 +453,8 @@ export default function Header() {
                                 padding: "11px 20px",
                                 fontSize: "14px",
                                 borderRadius: "7px",
-                                width: "fit-content"
+                                width: "fit-content",
+                                margin: "0"
                             }}
                         >Разместить объявление</Button>
                     </Link>
