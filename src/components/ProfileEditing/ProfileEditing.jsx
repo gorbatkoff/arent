@@ -90,7 +90,7 @@ function ProfileEditing() {
                         </div>
                     </div>
 
-                    <Button sx={{ background: "#316BFE", borderRadius: "7px", color: "#fff", textTransform: "none", width: "395px", padding: "12px 95px", marginTop: "40px" }}>Сохранить изменения</Button>
+                    <Button color="primary" variant="contained">Сохранить изменения</Button>
                 </div>
             </div>
         </Container>
