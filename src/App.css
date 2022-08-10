@@ -5,26 +5,6 @@
     font-family: "Inter", sans-serif;
 }
 
-.active_button {
-    background: #316BFE !important;
-    border-radius: 7px !important;
-    color: #fff !important;
-    padding: 16px !important;
-    text-transform: none !important;
-    font-weight: 500 !important;
-    font-size: 16px !important;
-    line-height: 19px !important;
-    padding: 14px 20px !important;
-}
-
-.inactive_button {
-    background: #E8EDF5 !important;
-    border-radius: 7px !important;
-    color: #60636c !important;
-    padding: 16px !important;
-    text-transform: none !important;
-    font-weight: 500 !important;
-    font-size: 16px !important;
-    line-height: 19px !important;
-    padding: 14px 20px !important;
+.css-o6jz7w-MuiButtonBase-root-MuiButton-root{
+    color: red;
 }
