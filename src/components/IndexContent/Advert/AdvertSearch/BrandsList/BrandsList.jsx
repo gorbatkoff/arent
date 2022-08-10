@@ -43,8 +43,8 @@ export default function BrandsList() {
             'УАЗ'
         ];
 
-        return arrayOfBrands.map((brand) => 
-        <div className={styles.brand}>
+        return arrayOfBrands.map((brand, i) => 
+        <div className={styles.brand} key={i}>
             <div>{brand}</div>
             <div className={styles['brand-count']}>152</div>
         </div>)
