@@ -2,7 +2,11 @@ import { React, useState, useEffect } from 'react';
 
 import { Routes, Route, Link } from 'react-router-dom';
 
+import { createTheme, colors, ThemeProvider, Button } from '@mui/material';
+import { styled } from '@mui/system';
+
 import './App.css';
+
 import AdvertPage from './components/AdvertPage/AdvertPage';
 import CreateAdvert from './components/CreateAdvert/CreateAdvert';
 import Description from './components/Description/Description';
@@ -20,27 +24,49 @@ import Profile from './components/Profile/Profile';
 import Wallet from './components/Wallet/Wallet';
 import Booking from './components/Booking/Booking';
 import Title from './components/Title/Title';
-import { Container } from '@mui/system';
+import { color, Container } from '@mui/system';
 
 import axios from 'axios';
+import BasicButton from './UI/Button/BasicButton';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2962ff",
+    }
+  },
+  typography: {
+    button: {
+      textTransform: "none",
+      fontSize: "16px",
+      lineHeight: "200%",
+      marginRight: "1em",
+      // height: "40px",
+    }
+  }
+})
+
+
 
 function App() {
 
-  const [allAdverts, setAllAdverts] = useState([]);
   const [token, setToken] = useState('');
+  const [allAdverts, setAllAdverts] = useState([]);
+  const [marks, setMarks] = useState({});
 
   const api = axios.create({
-    baseURL: 'http://62.113.113.106/api/'
+    baseURL: 'http://62.113.113.106/api'
   });
 
 
+
   const getAdverts = async () => { // function of gettings adverts
-    const response = await api.get(`all_ads/`);
 
     try {
+      const response = await api.get(`/ad/all_ads/`);
+
       setAllAdverts(response.data);
 
-      console.log(allAdverts);
     }
 
     catch (err) {
@@ -48,85 +74,58 @@ function App() {
     }
   };
 
+  const getMarksOfAuto = async () => { // function of gettings adverts
+
+    try {
+      const response = await api.get(`/ad/cars/`);
+
+      setMarks(response.data);
+
+    }
+
+    catch (err) {
+      console.log(err);
+    }
+  };
+
+  // console.log(allAdverts);
+  // console.log(marks);
+  // console.log("Token from App.js >>> " + token)
+
   useEffect(() => {
-    getAdverts();
-  }, []);
+    getAdverts()
+    getMarksOfAuto()
+  }, [])
+
 
   return (
 
     <div>
-      {/* Страница: Main  */}
+      <ThemeProvider theme={theme}>
+        <Header setToken={setToken} />
+        <Navbar />
 
-      {/* <Header></Header> */}
-      {/* <Navbar></Navbar>
-      <Container>
-        <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
-      </Container>
-      <Promo></Promo>
-      <IndexContent></IndexContent>
-      <Footer /> */}
+        <Routes>
+          <Route path="/" element={[
+            <Container>
+              <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
+            </Container>,
+            <Promo />,
+            <IndexContent />]} />
 
-      {/* Страница: Search */}
+          <Route path="/create" element={<CreateAdvert allMarks={marks} />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/advert" element={<AdvertPage />} />
+          <Route path="/advert/:id" element={<AdvertPage />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/my-advert" element={<MyAdvert />} />
+          <Route path="/edit" element={<ProfileEditing />} />
+        </Routes>
 
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <Search/>
-      <Footer /> */}
-
-      {/* Страница: Advert Page */}
-
-      {/* <Header></Header> */}
-      {/* <Navbar></Navbar>
-      <AdvertPage />
-      <Footer /> */}
-
-      {/* Страница: CreateAdvert */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <CreateAdvert/> 
-      <Footer /> */}
-
-      {/* Страница: ProfileEditing */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <ProfileEditing /> */}
-
-      {/* Страница MyAdvert */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <MyAdvert/>
-      <Footer /> */}
-
-      {/* Страница Profile */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <Profile /> */}
-
-      {/* Страница Wallet */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <Wallet />
-      <Footer />  */}
-
-      {/* Страница Booking */}
-      {/* <Header></Header>
-      <Navbar></Navbar>
-      <Booking />
-      <Footer /> */}
-
-      <Routes>
-        <Route path="/" element={[
-          <Container>
-            <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
-          </Container>,
-          <Promo />,
-          <IndexContent />]} />
-
-          <Route path="/create" element={<CreateAdvert/>} />
-          <Route path="/advert" element={<AdvertPage/>} />
-          <Route path="/advert/:id" element={<AdvertPage/>} />
-      </Routes>
-
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 }
