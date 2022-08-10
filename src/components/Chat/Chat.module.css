@@ -1,0 +1,18 @@
+.chat-wrapper {
+    display: flex;
+    padding-top: 20px;
+}
+
+.dialogs {
+    width: 350px;
+    height: 950px;
+    border-right: 1px solid #E8EDF5;
+}
+
+.dialogs h3 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+    margin-left: 20px;
+}
