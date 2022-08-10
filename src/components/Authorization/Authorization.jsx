@@ -4,7 +4,7 @@ import EnterCode from './EnterCode/EnterCode';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
 
-function Authorization({setIsAutorized}) {
+function Authorization({setIsAutorized, setToken}) {
 
     const [typeOfLogin, setTypeOfLogin] = useState('Авторизация');
 
@@ -14,7 +14,7 @@ function Authorization({setIsAutorized}) {
 
                 ?
 
-                <Login setTypeOfLogin={setTypeOfLogin} setIsAutorized={setIsAutorized} />
+                <Login setTypeOfLogin={setTypeOfLogin} setIsAutorized={setIsAutorized} setToken={setToken} />
 
                 :
 
