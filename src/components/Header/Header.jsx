@@ -56,7 +56,7 @@ import Chat from '../Chat/Chat';
 
 
 
-export default function Header({ setToken }) {
+export default function Header({ token, setToken, marks }) {
 
     const isTokenExist = () => {
         if (document.cookie.indexOf("token") > 0) setIsAutorized(true);
@@ -101,7 +101,7 @@ export default function Header({ setToken }) {
     };
 
     const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        if (event.type === 'keydown' &&  event.key === 'Shift') {
             return;
         }
 
@@ -206,9 +206,9 @@ export default function Header({ setToken }) {
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 900 }}
             role="presentation"
             // onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
+            // onKeyDown={toggleDrawer(anchor, false)}
         >
-            <Chat />
+            <Chat token={token} marks={marks}/>
         </Box>
     );
 
@@ -405,7 +405,6 @@ export default function Header({ setToken }) {
                             </Menu>
                         </React.Fragment>
                         :
-
                         <React.Fragment>
                             <Button variant="contained" size="small" color="inherit"
                                 sx={{
@@ -444,16 +443,17 @@ export default function Header({ setToken }) {
                                 </DialogActions> */}
                                 <Authorization setIsAutorized={setIsAutorized} setToken={setToken} />
                             </Dialog>
-                        </React.Fragment>}
+                        </React.Fragment>
+                    }
                     <Link to="/create" style={{ width: 'fit-content' }}>
-                        <Button variant="contained" size="small" color="primary"
+                        <Button variant="contained" size="small" className={styles['create-advert']} color="primary"
                             sx={{
                                 textTransform: "none",
                                 color: "#fff",
-                                padding: "11px 20px",
-                                fontSize: "14px",
+                                padding: "10px",
+                                fontSize: "16px",
                                 borderRadius: "7px",
-                                width: "fit-content",
+                                width: "max-content",
                                 margin: "0"
                             }}
                         >Разместить объявление</Button>
