@@ -1,0 +1,69 @@
+.dialog {
+    width: 100%;
+    border: none;
+    /* background: #E8EDF5; */
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px 0px;
+    text-align: left;
+    align-items: flex-start;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(208, 208, 208);
+    /* border-: 1px solid rgb(208, 208, 208); */
+}
+
+.dialog:focus,
+.dialog:hover {
+    background: #E8EDF5;
+}
+
+.photo-of-advert {
+    width: 100px;
+    height: 80px;
+    background: #D7DEEF;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-of-advert img {
+
+    width: 65px;
+    height: 29px;
+}
+
+.dialog-info {
+    width: 50%;
+}
+
+.dialog-info-block {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+}
+
+
+.dialog-info-block h4 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #262D3F;
+}
+
+.dialog-span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7E8497;
+}
+
+.dialog-info-block p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #262D3F;
+    width: 130px;
+}

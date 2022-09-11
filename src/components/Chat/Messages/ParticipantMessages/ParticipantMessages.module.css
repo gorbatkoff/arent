@@ -1,0 +1,25 @@
+.owner{
+    background: #316AFB;
+    color: #fff;
+    padding: 1em;
+    border-radius: 7px;
+    margin: 15px 0 15px auto;
+    font-size: 14px;
+    text-align: right;
+    border-radius: 10px 10px 0px 10px;
+    padding: 10px 12px;
+    width: 80%;
+}
+
+.participant{
+    width: fit-content;
+    max-width: 70%;
+    margin: 10px 0;
+    color: #262D3F;
+    padding: 1em;
+    border-radius: 7px;
+    text-align: left;
+    font-size: 14px;
+    background: #E8EDF5;
+    border-radius: 10px 10px 10px 0px;
+}
