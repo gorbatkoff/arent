@@ -18,7 +18,7 @@ function CommercialTransport() {
 
                 <div className={styles['right-blocks']}>
                     <div className={styles.block}>Седельные тягачи</div>
-                    <Button variant="contained" id={styles['look-more']}>Посмотреть все</Button>
+                    <Button variant="contained" id={styles['look-more']} sx={{width: "100%"}}>Посмотреть все</Button>
                 </div>
             </div>
         </div>
