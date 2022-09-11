@@ -62,20 +62,26 @@ export default function Login({ setTypeOfLogin, setIsAutorized, setToken }) {
     });
 
     const setCookie = (token) => {
-        // Add a verification of the token. 
-        // Token can't contain [], {} or true or false or smth other
-
+        localStorage.setItem('token', token);
         document.cookie = `token=${token}`;
+    }
+
+    const setUserId = (userId) => {
+        localStorage.setItem('userId', userId);
     }
 
     const getToken = async (login, password) => {
         try {
             let req = await api.post(`/login/`, { "user": { "username": "root", "password": "12344321" } });
             
+            console.log(req.data)
             console.log(req.data.user.token);
+            
             setToken(req.data.user.token);
             setIsAutorized(true);
-            setCookie(req.data.user.token)
+
+            setCookie(req.data.user.token);
+            setUserId(req.data.user['user_id'])
         }
         catch (err) {
             alert("Something gone wrong!")
