@@ -1,18 +1,46 @@
 .chat-wrapper {
     display: flex;
     padding-top: 20px;
+    justify-content: space-between;
 }
 
 .dialogs {
-    width: 350px;
-    height: 950px;
+    min-width: 350px;
+    height: 100%;
+    overflow-y: hidden;
+    position: fixed;
     border-right: 1px solid #E8EDF5;
 }
 
-.dialogs h3 {
-    font-weight: 500;
+.chat{
+    margin-left: 40%;
+}
+
+.chat-wrapper h3 {
+    font-weight: 600;
     font-size: 22px;
     line-height: 27px;
     color: #000000;
-    margin-left: 20px;
+}
+
+.dialogs-header{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.text-input{
+    z-index: 110;
+    position: fixed;
+    top: 85vh;
+    height: 100%;
+    width: 35%;
+    background-color: #fff;
+    padding: 1em 0;
+}
+
+.message-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
