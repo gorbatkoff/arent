@@ -1,19 +1,29 @@
-.advertSearch h2{
+.advertSearch h2 {
     font-weight: 600;
     font-size: 26px;
     font-style: normal;
 }
 
-.choose-options{
-    padding: 15px 0;    
+.choose-options {
+    padding: 15px 0;
 }
 
-.car-type{
+.car-type {
     background: inherit;
 }
 
-.car-type button{
+.car-type button {
     background-color: #E7EBF3;
+    border-radius: 7px;
     color: #262D3F;
-    margin-right: 15px;
+    line-height: 19px;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 14px 26px;
+    margin: 0;
 }
+
+.car-type button:hover{
+    color: #fff;
+    background-color: #262D3F;
+} 
