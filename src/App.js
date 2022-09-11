@@ -102,17 +102,10 @@ function App() {
 
     <div>
       <ThemeProvider theme={theme}>
-        <Header setToken={setToken} />
+        <Header setToken={setToken} token={token} marks={marks} />
         <Navbar />
-
         <Routes>
-          <Route path="/" element={[
-            <Container>
-              <Title title="Легковые автомобили в Москве"></Title><p style={{ fontWeight: '400', color: '#78839E', fontSize: '16px', paddingBottom: "1em" }}>7 532 предложения</p>
-            </Container>,
-            <Promo />,
-            <IndexContent />]} />
-
+          <Route path="/" element={[<IndexContent />]} />
           <Route path="/create" element={<CreateAdvert allMarks={marks} />} />
           <Route path="/search" element={<Search />} />
           <Route path="/advert" element={<AdvertPage />} />
