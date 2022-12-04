@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 
 import { useState, useEffect } from 'react'
-import BreadCrumbs from '../BreadCrumbs/BreadCrumbs'
+import BreadCrumbs from '../../BreadCrumbs/BreadCrumbs'
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';

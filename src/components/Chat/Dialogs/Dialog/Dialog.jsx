@@ -26,7 +26,7 @@ function Dialog({ dialog, marks }) {
                         </div>
 
                         <div className={styles['dialog-info-block']}>
-                            <span className={styles['dialog-span']}>{marks.marks['76']['mark_name'] + ' ' + marks.marks['76']['models'][0]['model_name']}</span>
+                            {/* <span className={styles['dialog-span']}>{marks.marks['76']['mark_name'] + ' ' + marks.marks['76']['models'][0]['model_name']}</span> */}
                             <span className={styles['dialog-span']}>{dialog['advert_car_price']}₽/ч</span>
                         </div>
 

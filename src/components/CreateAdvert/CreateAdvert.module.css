@@ -1,4 +1,9 @@
-section {
+.create-advert{
+    margin: 100px 0;
+}
+
+
+.form {
     display: grid;
     grid-template-columns: 70% 30%;
     grid-column-gap: 1em;
@@ -58,21 +63,25 @@ section {
     background: #FABE00;
 }
 
-.pick-color button {
+.pick-color .color-button {
     background: none;
     border: none;
     outline: none;
     margin-right: 15px;
 }
 
-.pick-color button:hover {
+.pick-color .color-button:hover {
     cursor: pointer;
 }
 
-.pick-color button:focus {
+#placeholder_test{
+    color: red;
+}
+
+/* .pick-color button:focus {
     border-bottom: 3px solid #0275d8;
     border-top: 3px solid #0275d8;
-}
+} */
 
 .number {
     width: 600px;

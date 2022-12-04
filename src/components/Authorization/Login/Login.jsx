@@ -46,10 +46,6 @@ function Copyright(props) {
     );
 }
 
-// const theme = createTheme();
-
-
-
 
 export default function Login({ setTypeOfLogin, setIsAutorized, setToken }) {
 
@@ -72,7 +68,7 @@ export default function Login({ setTypeOfLogin, setIsAutorized, setToken }) {
 
     const getToken = async (login, password) => {
         try {
-            let req = await api.post(`/login/`, { "user": { "username": "root", "password": "12344321" } });
+            let req = await api.post(`/login/`, { "user": { "username": login, "password": password } });
             
             console.log(req.data)
             console.log(req.data.user.token);
@@ -159,7 +155,7 @@ export default function Login({ setTypeOfLogin, setIsAutorized, setToken }) {
                             autoComplete="current-password"
                         />
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
+                            control={<Checkbox value="remember" color="primary" name="remember"/>}
                             label="Remember me"
                         />
                         <Button

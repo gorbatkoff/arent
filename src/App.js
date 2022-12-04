@@ -7,7 +7,7 @@ import { styled } from '@mui/system';
 
 import './App.css';
 
-import AdvertPage from './components/AdvertPage/AdvertPage';
+// import AdvertPage from './components/AdvertPage/AdvertPage';
 import CreateAdvert from './components/CreateAdvert/CreateAdvert';
 import Description from './components/Description/Description';
 import Footer from './components/Footer/Footer';
@@ -88,9 +88,6 @@ function App() {
     }
   };
 
-  // console.log(allAdverts);
-  // console.log(marks);
-  // console.log("Token from App.js >>> " + token)
 
   useEffect(() => {
     getAdverts()
@@ -108,8 +105,8 @@ function App() {
           <Route path="/" element={[<IndexContent />]} />
           <Route path="/create" element={<CreateAdvert allMarks={marks} />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/advert" element={<AdvertPage />} />
-          <Route path="/advert/:id" element={<AdvertPage />} />
+          {/* <Route path="/advert" element={<AdvertPage />} />
+          <Route path="/advert/:id" element={<AdvertPage />} /> */}
           <Route path="/booking" element={<Booking />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/profile" element={<Profile />} />

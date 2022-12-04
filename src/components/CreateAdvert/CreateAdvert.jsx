@@ -2,7 +2,8 @@ import { React, useState } from 'react';
 import Container from '@mui/material/Container';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import Title from '../Title/Title';
-import { Button, ButtonGroup, Input, TextareaAutosize } from '@mui/material';
+import { Button, ButtonGroup, Input, Select, MenuItem, InputLabel, TextareaAutosize, Box } from '@mui/material';
+import InputMask from "react-input-mask";
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import FormGroup from '@mui/material/FormGroup';
@@ -10,6 +11,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Autocomplete from '@mui/material/Autocomplete';
 import { IMaskInput } from 'react-imask';
+import FormControl from '@mui/material/FormControl';
 
 import styles from './CreateAdvert.module.css'
 
@@ -19,88 +21,148 @@ import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import SailingIcon from '@mui/icons-material/Sailing';
 import BrandsList from '../IndexContent/Advert/AdvertSearch/BrandsList/BrandsList';
 
-import Sedan from '../../images/Sedan.svg';
-import Coupe from '../../images/Coupe.svg';
 
-import { style } from '@mui/system';
-import SearchFilter from '../Search/SearchMenu/SearchFilter/SearchFilter';
+import { useForm, Controller } from "react-hook-form";
+
+const marksList = [
+    { label: 'Honda' },
+    { label: 'Infiniti' },
+];
+const colors = [
+    { label: 'Белый' },
+    { label: 'Ярко-серый' },
+    { label: 'Бежевый' },
+    { label: 'Жёлтый' },
+    { label: 'Оранжевый' },
+    { label: 'Персиковый' },
+    { label: 'Розовый' },
+    { label: 'Красный' },
+    { label: 'Бардовый' },
+    { label: 'Коричневый' },
+    { label: 'Голубой' },
+    { label: 'Синий' },
+    { label: 'Фиолетовый' },
+    { label: 'Серый' },
+    { label: 'Чёрный' },
+];
+const months = [
+    { label: 'Январь' },
+    { label: 'Февраль' },
+    { label: 'Март' },
+    { label: 'Апрель' },
+    { label: 'Апрель' },
+    { label: 'Май' },
+    { label: 'Июнь' },
+    { label: 'Июль' },
+    { label: 'Август' },
+    { label: 'Сентябрь' },
+    { label: 'Октябрь' },
+    { label: 'Ноябрь' },
+    { label: 'Декабрь' },
+]
+const cities = [
+    { label: 'Москва' },
+    { label: 'Санкт-Петербург' },
+    { label: 'Ростов На Дону' },
+    { label: 'Краснодар' },
+    { label: 'Екатеринбург' },
+    { label: 'Белгород' },
+    { label: 'Тверь' },
+    { label: 'Новосибирск' },
+    { label: 'Нижний Новгород' },
+    { label: 'Челябинск' },
+    { label: 'Самара' },
+    { label: 'Новороссийск' },
+    { label: 'Казань' },
+]
+
+
+
 
 function CreateAdvert({ allMarks }) {
 
-    const [advertValues, setAdvertValues] = useState({
-        type_of_car: "",
-        mark_of_car: "",
-        car_model: "",
-        year_of_issue: null,
-        year_of_car_purchase: null,
-        month_of_car_purchase: null,
-        car_body_type: "",
-        engine: "",
-        drive_unit_display: "",
-        transmission_display: "",
-        modification: "",
-        color: "",
-        mileage: null,
-        state_number: "",
-        vin: "",
-        registration_certificate: "",
-        passport_of_car: "",
-        description: "",
-        owners_by_pts: null,
-        city_of_rent: "",
-        price: null,
-        isOnGuarantee: false,
-        isHaveEngineEquipment: false,
-        isWasBuyOnlyForRent: false,
-        isNotRegisteredInRussia: false,
-        canShowOnly: false,
-        isChatOnly: false,
+    const { register, handleSubmit, control } = useForm();
+    const [data, setData] = useState("");
 
-    })
+    // List of states
 
-    const marksList = [
-        { label: 'Honda' },
-        { label: 'Infiniti' },
-    ];
+    const [adCategoryValue, setAdCategoryValue] = useState();
+    const [carBodyTypeValue, setCarBodyTypeValue] = useState();
+    const [typeOfEngineValue, setTypeOfEngineValue] = useState();
+    const [driveUnitValue, setDriveUnitValue] = useState();
+    const [transmissionDisplayValue, setTransmissionDisplayValue] = useState();
+    const [modificationValue, setModificationValue] = useState();
+    const [transmissionValue, setTransmissionValue] = useState();
 
-    // console.log(allMarks)
-
-    function handleChange(e) {
-        console.log(e.target.innerText)
-        setAdvertValues(prev => ({ ...prev, [e.target.id]: e.target.value || e.target.innerText }))
+    function handleChange(event) {
+        setAdCategoryValue(event.target.value);
     }
 
-    function setColor(color) {
-        setAdvertValues(prev => ({ ...prev, color: color }))
+    function createAdvert(data){
+        const obj = {
+            "owner": 0,
+            "ad_type": 1,
+            "brand": -2147483648,
+            "car_model": -2147483648,
+            "year_of_issue": -2147483648,
+            "engine": -2147483648,
+            "has_gas_equipment": true,
+            "drive_unit": 1,
+            "transmission": 1,
+            "color": 1,
+            "mileage": -2147483648,
+            "state_number": "string",
+            "vin": "string",
+            "body_number": "string",
+            "registration_certificate": "string",
+            "owners_by_pts": -2147483648,
+            "car_purchased_for_rent": true,
+            "year_of_car_purchase": -2147483648,
+            "month_of_car_purchase": -2147483648,
+            "on_guarantee": true,
+            "description": "string",
+            "sale_city": "string",
+            "price": 0,
+            "steering_wheel": 1,
+            "customs": 1,
+            "pts": "string",
+            "insurance": 1,
+            "generation": -2147483648
+        }
     }
 
-    console.log(advertValues);
 
     return (
         <Container sx={{ padding: "35px 0" }}>
             <BreadCrumbs />
-            <section>
+            <form className={styles.form} onSubmit={handleSubmit((data) => createAdvert(data))}>
                 <div className={styles.filling}>
                     <Title title="Разместить объявление аренды"></Title>
 
                     <div className={styles['choose-transport']}>
 
-                        <Button variant="contained"
-                            startIcon={<DirectionsCarIcon size="large" />}
-                        >Автомобиль</Button>
-
-                        <Button variant="contained"
-                            startIcon={<LocalShippingIcon />}
-                        >Коммерческое авто</Button>
-
-                        <Button variant="contained"
-                            startIcon={<TwoWheelerIcon />}
-                        >Мото</Button>
-
-                        <Button variant="contained"
-                            startIcon={<SailingIcon />}
-                        >Водный транспорт</Button>
+                        <Box sx={{ minWidth: "100%" }}>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Выберите тип машины</InputLabel>
+                                <Select
+                                    {...register("category")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={adCategoryValue}
+                                    label="Age"
+                                    onChange={(event) => setAdCategoryValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>Автомобиль</MenuItem>
+                                    <MenuItem value={2}>Коммерческое авто</MenuItem>
+                                    <MenuItem value={3}>Мото</MenuItem>
+                                    <MenuItem value={4}>Водный транспорт</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                        
                     </div>
+
+
 
                     <div className={styles['enter-model']}>
                         <h3>Введите марку автомобиля</h3>
@@ -108,24 +170,16 @@ function CreateAdvert({ allMarks }) {
                     </div>
 
                     <div className={styles['brand-search-input']}>
-                        {/* <TextField sx={{
-                            width: "100%", background: "#E8EDF5", borderRadius: "7px",
-                            border: "none"
-                        }} label="Марка" 
-                        onChange={e => handleChange(e)}/> */}
-
                         <Autocomplete
-                            onChange={e => handleChange(e)}
+                            
                             disablePortal
                             isOptionEqualToValue={(option, value) => option.value === value.value}
                             id="combo-box-demo"
                             options={marksList}
                             sx={{ width: "50%", background: "#E8EDF5", border: "0" }}
-                            renderInput={(params) => <TextField {...params} label="Марка автомобиля"
+                            renderInput={(params) => <TextField {...register("mark_of_auto")} {...params} label="Марка автомобиля"
                             />}
                         />
-
-                        {/* <input type="text" name="hello" onChange={e => handleChange(e)}/> */}
 
                     </div>
 
@@ -140,9 +194,9 @@ function CreateAdvert({ allMarks }) {
                             width: "100%", background: "#E8EDF5", borderRadius: "7px",
                             border: "none"
                         }}
-                            label="Марка"
-                            onChange={e => handleChange(e)}
+                            label="Модель"
                             id="mark_of_car"
+                            {...register("model_of_auto")}
                         />
                     </div>
 
@@ -150,49 +204,56 @@ function CreateAdvert({ allMarks }) {
                         <h3>Год выпуска</h3>
 
 
-                        <Button variant="contained" id="year_of_issue" onClick={e => handleChange(e)}>
-                            2010
-                        </Button>
-
-                        <Button variant="contained" id="year_of_issue" onClick={e => handleChange(e)}>
-                            2009
-                        </Button>
-
-                        <Button variant="contained" id="year_of_issue" onClick={e => handleChange(e)}>
-                            2008
-                        </Button>
-
-                        <Button variant="contained" id="year_of_issue" onClick={e => handleChange(e)}>
-                            2007
-                        </Button>
-
-                        <Button variant="contained" id="year_of_issue" onClick={e => handleChange(e)}>
-                            2006
-                        </Button>
+                        <TextField sx={{
+                            width: "100%", background: "#E8EDF5", borderRadius: "7px",
+                            border: "none"
+                        }}
+                            label="Модель"
+                            id="mark_of_car"
+                            {...register("year_of_car_purchase")}
+                        />
                     </div>
 
                     <div className={styles['car-body-type']}>
                         <h3>Тип кузова</h3>
 
-                        <Button variant="contained" id="car_body_type" onClick={e => handleChange(e)}
-                        >Седан</Button>
-
-                        <Button variant="contained" id="car_body_type" onClick={e => handleChange(e)}
-                        >Купе</Button>
+                        <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Тип кузова</InputLabel>
+                                <Select
+                                    {...register("car_body_type")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={carBodyTypeValue}
+                                    label="Тип кузова"
+                                    onChange={(event) => setCarBodyTypeValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>Седан</MenuItem>
+                                    <MenuItem value={2}>Купе</MenuItem>
+                                </Select>
+                            </FormControl>
                     </div>
 
                     <div className={styles.engine}>
                         <h3>Двигатель</h3>
 
                         <div className={styles['type-of-engine']}>
-                            <Button variant="contained" id="engine" onClick={e => handleChange(e)}
-                            >Бензин</Button>
+                        <FormControl fullWidth sx={{marginRight: "30px"}}>
+                                <InputLabel id="demo-simple-select-label">Тип кузова</InputLabel>
+                                <Select
+                                    {...register("type-of-engine")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={typeOfEngineValue}
+                                    label="Тип кузова"
+                                    onChange={(event) => setTypeOfEngineValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>Бензин</MenuItem>
+                                    <MenuItem value={2}>Дизель</MenuItem>
+                                </Select>
+                            </FormControl>
 
-                            <Button variant="contained" id="engine" onClick={e => handleChange(e)}
-                            >Дизель</Button>
-
-                            <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked onClick={(e) => console.log(e.target.checked)} />} label="Газобаллоное оборудование" />
+                            <FormGroup >
+                                <FormControlLabel control={<Checkbox {...register("has_gas_equipment")}/>} label="Газобаллоное оборудование" />
                             </FormGroup>
                         </div>
                     </div>
@@ -200,58 +261,64 @@ function CreateAdvert({ allMarks }) {
                     <div className={styles['wheel-drive']}>
                         <h3>Привод</h3>
 
-                        <Button variant="contained" id="drive_unit_display" onClick={e => handleChange(e)}
-                        >Задний</Button>
-
-                        <Button variant="contained" id="drive_unit_display" onClick={e => handleChange(e)}
-                        >Полный</Button>
+                        <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Тип кузова</InputLabel>
+                                <Select
+                                    {...register("wheel_drive")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={driveUnitValue}
+                                    label="Тип кузова"
+                                    onChange={(event) => setDriveUnitValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>Передний</MenuItem>
+                                    <MenuItem value={2}>Задний</MenuItem>
+                                    <MenuItem value={3}>Полный</MenuItem>
+                                </Select>
+                            </FormControl>
                     </div>
 
                     <div className={styles.transmission}>
                         <h3>Коробка передач</h3>
 
-                        <Button variant="contained" id="transmission_display" onClick={e => handleChange(e)}
-                        >Механическая</Button>
-
-                        <Button variant="contained" id="transmission_display" onClick={e => handleChange(e)}
-                        >Автоматическая</Button>
+                        <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Тип кузова</InputLabel>
+                                <Select
+                                    {...register("transmission")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={transmissionDisplayValue}
+                                    label="Тип кузова"
+                                    onChange={(event) => setTransmissionDisplayValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>Механическая</MenuItem>
+                                    <MenuItem value={2}>Автоматическая</MenuItem>
+                                </Select>
+                            </FormControl>
                     </div>
 
                     <div className={styles.modification}>
                         <h3>Модификация</h3>
 
-                        <Button variant="contained"
-                            style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}
-                            id="modification" onClick={e => handleChange(e)}
-                        >
-                            105 л.с
+                        <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Тип кузова</InputLabel>
+                                <Select
+                                    {...register("transmission")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={modificationValue}
+                                    label="Тип кузова"
+                                    onChange={(event) => setModificationValue(event.target.value)}
+                                >
+                                    <MenuItem value={1}>105 л.с
                             2.0 АТ
-                            2008-2010
-                        </Button>
-                        <Button variant="contained"
-                            style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}
-                            id="modification" onClick={e => handleChange(e)}
-                        >
-                            105 л.с
+                            2008-2010</MenuItem>
+                                    <MenuItem value={2}>105 л.с
                             2.0 АТ
-                            2008-2010
-                        </Button>
-                        <Button variant="contained"
-                            style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}
-                            id="modification" onClick={e => handleChange(e)}
-                        >
-                            105 л.с
-                            2.0 АТ
-                            2008-2010
-                        </Button>
-                        <Button variant="contained"
-                            style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}
-                            id="modification" onClick={e => handleChange(e)}
-                        >
-                            105 л.с
-                            2.0 АТ
-                            2008-2010
-                        </Button>
+                            2008-2010</MenuItem>
+                                </Select>
+                            </FormControl>
+
 
                     </div>
 
@@ -259,34 +326,44 @@ function CreateAdvert({ allMarks }) {
 
                         <h3>Цвет</h3>
 
-                        <button id="Белый" onClick={() => setColor('Белый')}><div style={{ background: "#ffffff", border: "1px solid black" }}></div></button>
-                        <button id="Ярко-серый" onClick={() => setColor('серый')}><div style={{ background: "#C1C1C1" }}></div></button>
-                        <button id="Бежевый" onClick={() => setColor('Бежевый')}><div style={{ background: "#FFEFD5" }}></div></button>
-                        <button id="Жёлтый" onClick={() => setColor('Жёлтый')}><div style={{ background: "#FDE910" }}></div></button>
-                        <button id="Оранжевый" onClick={() => setColor('Оранжевый')}><div style={{ background: "#FABE00" }}></div></button>
-                        <button id="Персиковый" onClick={() => setColor('Персиковый')}><div style={{ background: "#FF9966" }}></div></button>
-                        <button id="Розовый" onClick={() => setColor('Розовый')}><div style={{ background: "#FFC0CB" }}></div></button>
-                        <button id="Красный" onClick={() => setColor('Красный')}><div style={{ background: "#FF2600" }}></div></button>
-                        <button id="Бардовый" onClick={() => setColor('Бардовый')}><div style={{ background: "#CC1D33" }}></div></button>
-                        <button id="Коричневый" onClick={() => setColor('Коричневый')}><div style={{ background: "#926547" }}></div></button>
-                        <button id="Голубой" onClick={() => setColor('Голубой')}><div style={{ background: "#0088FF" }}></div></button>
-                        <button id="Синий" onClick={() => setColor('Синий')}><div style={{ background: "#0433FF" }}></div></button>
-                        <button id="Фиолетовый" onClick={() => setColor('Фиолетовый')}><div style={{ background: "#9966CC" }}></div></button>
-                        <button id="Серый" onClick={() => setColor('Серый')}><div style={{ background: "#9C9999" }}></div></button>
-                        <button id="Чёрный" onClick={() => setColor('Чёрный')}><div style={{ background: "#000000" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#ffffff", border: "1px solid black" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#C1C1C1" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FFEFD5" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FDE910" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FABE00" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FF9966" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FFC0CB" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#FF2600" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#CC1D33" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#926547" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#0088FF" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#0433FF" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#9966CC" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#9C9999" }}></div></button>
+                        <button className={styles['color-button']}><div style={{ background: "#000000" }}></div></button>
                     </div>
+                    <Autocomplete
+                            disablePortal
+                            isOptionEqualToValue={(option, value) => option.value === value.value}
+                            id="combo-box-demo"
+                            options={colors}
+                            sx={{ width: "50%", background: "#E8EDF5", border: "0", marginTop: "2em"}}
+                            renderInput={(params) => <TextField {...register("color")} {...params} label="Цвет автомобиля"
+                            />}
+                        />
 
                     <div className={styles.mileage}>
 
                         <h3>Пробег</h3>
 
-                        <TextField label="КМ" sx={{
+                        <TextField sx={{
                             width: "50%", background: "#E8EDF5", borderRadius: "7px",
                             border: "none"
-                        }}
-                            id="mileage" onChange={e => handleChange(e)}
-                            type="number"
-                        ></TextField>
+                        }}  
+                        type="number"
+                            label="КМ"
+                            {...register("mileage")}
+                        />
 
                     </div>
 
@@ -296,50 +373,69 @@ function CreateAdvert({ allMarks }) {
                         <p style={{ color: "#78839E" }}>Мы размещаем только проверенные автомобили</p>
 
                         <div className={styles.number}>
-                            <IMaskInput
-                                mask="$ ### $$"
-                                definitions={{
-                                    '#': /[0-9]/,
-                                    '$': /[ЁёА-я]/
-                                }}
-                                placeholder="А 000 АА"
-                                style={{ textTransform: "uppercase", color: "#78839E", padding: "12px 24px", fontSize: "26px", width: "200px" }}
-                                id="state_number"
-                                onChange={e => handleChange(e)}
+
+                            <Controller
+                                name="state_number"
+                                placeholder="А001АА"
+                                control={control}
+                                rules={{ required: true }}
+                                render={({ field }) => (
+                                    <InputMask
+                                        {...field}
+                                        formatChars={{
+                                            '9': '[0-9]',
+                                            'a': '[АВЕКМНОРСТУХ-авекмнорстух]',
+                                            '*': '/[А-Яа-яЁё]/'
+                                        }}
+                                        mask="a 999 aa"
+                                        maskChar='_'
+                                        alwaysShowMask="false"
+                                        style={{ textTransform: "uppercase", color: "#78839E", padding: "12px 24px", fontSize: "26px", width: "200px" }}
+                                        type="text"
+                                        id="placeholder_test"
+                                        placeholder="А001АА"
+                                    />
+                                )}
                             />
-                            <IMaskInput
-                                mask="###"
-                                definitions={{
-                                    '#': /[0-9]/
-                                }}
-                                placeholder="000"
-                                style={{ textTransform: "uppercase", color: "#78839E", padding: "12px 24px", fontSize: "26px", width: "100px" }}
+
+                            <Controller
+                                name="region_number"
+                                control={control}
+                                rules={{ required: true }}
+                                render={({ field }) => (
+                                    <InputMask
+                                        {...field}
+                                        mask='999'
+                                        maskChar='_'
+                                        alwaysShowMask="false"
+                                        style={{ textTransform: "uppercase", color: "#78839E", padding: "12px 24px", fontSize: "26px", width: "100px" }}
+                                    />
+                                )}
                             />
 
                             <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked onClick={(e) => console.log(e.target.checked)} />} label="Автомобиль не на учёте в РФ" />
+                                <FormControlLabel control={<Checkbox {...register("has_gas_equipment")} />} label="Автомобиль не на учёте в РФ" />
                             </FormGroup>
                         </div>
 
                         <div className={styles['goverment-input']}>
+
                             <TextField label="VIN или Номер кузова" sx={{
                                 width: "50%", background: "#E8EDF5", borderRadius: "7px",
                                 border: "none"
                             }}
                                 type="number"
-                                id="vin"
-                                onChange={e => handleChange(e)}
+                                {...register("vin")}
                             />
                         </div>
 
                         <div className={styles['goverment-input']}>
-                            <TextField label="Свидетельство о регистрации (СТС)" sx={{
+                            <TextField label="Свидететельство о регистрации (СТС)" sx={{
                                 width: "50%", background: "#E8EDF5", borderRadius: "7px",
                                 border: "none"
                             }}
                                 type="number"
-                                id="registration_certificate"
-                                onChange={e => handleChange(e)}
+                                {...register("registration_sertificate")}
                             />
                         </div>
                     </div>
@@ -348,26 +444,35 @@ function CreateAdvert({ allMarks }) {
 
                         <h3>Паспорт транспортного средства</h3>
 
-                        <Button variant="contained" id="passport_of_car" onClick={e => handleChange(e)}
-                        >Оригинал</Button>
-
-                        <Button variant="contained" id="passport_of_car" onClick={e => handleChange(e)}
-                        >Дубликат</Button>
+                        <FormControl fullWidth sx={{width: "50%"}}>
+                                <InputLabel id="demo-simple-select-label">Паспорт транспортного средства</InputLabel>
+                                <Select
+                                    {...register("transmission")}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={adCategoryValue}
+                                    label="Паспорт транспортного средства"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={1}>Оригинал</MenuItem>
+                                    <MenuItem value={2}>Дубликат</MenuItem>
+                                </Select>
+                            </FormControl>
                     </div>
 
                     <div className={styles['trasnport-search']}>
-                        <TextField label="Владельцев по ПТС" sx={{
+                    <TextField sx={{
                             width: "50%", background: "#E8EDF5", borderRadius: "7px",
                             border: "none"
-                        }}
-                            type="number"
-                            id="owners_by_pts"
-                            onChange={e => handleChange(e)}
+                        }}  
+                        type="number"
+                            label="Владельцев по ПТС"
+                            {...register("owners_by_pts")}
                         />
                     </div>
 
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox defaultChecked onClick={(e) => console.log(e.target.checked)} />} label="Автомобиль приобретён для аренды" />
+                        <FormControlLabel control={<Checkbox {...register("car_purchased_for_rent")} />} label="Автомобиль приобретён для аренды" />
                     </FormGroup>
 
                     <div className={styles['date-of-purchase']}>
@@ -381,20 +486,20 @@ function CreateAdvert({ allMarks }) {
                             }}
                                 type="number"
                                 id="year_of_car_purchase"
-                                onChange={e => handleChange(e)}
+                                {...register("year_of_car_purchase")}
                             />
 
                             <Autocomplete
                                 disablePortal
                                 id="combo-box-demo"
-                                options={marksList}
-                                sx={{ background: "#E8EDF5", border: "0" }}
+                                options={months}
+                                sx={{ background: "#E8EDF5", border: "0", width: "100%" }}
                                 renderInput={(params) => <TextField {...params} label='Месяц' />}
                             />
                         </div>
 
-                        <FormGroup>
-                            <FormControlLabel control={<Checkbox defaultChecked />} label="На гарантии" />
+                        <FormGroup sx={{marginTop: "2em"}}>
+                            <FormControlLabel control={<Checkbox defaultChecked {...register("on_guarantee")}  />} label="На гарантии" />
                         </FormGroup>
 
                     </div>
@@ -417,7 +522,8 @@ function CreateAdvert({ allMarks }) {
 
                         </TextField> */}
                         <TextareaAutosize style={{ background: "#E8EDF5", borderRadius: "7px", minHeight: "165px", minWidth: "843px", maxWidth: "843px", border: "none", outline: "none", padding: "15px 20px", fontSize: "16px", color: "#595b61" }}
-                            id="description" onChange={e => handleChange(e)}
+                            id="description"
+                            {...register("description")}
                         />
                     </div>
 
@@ -432,7 +538,7 @@ function CreateAdvert({ allMarks }) {
                             <Autocomplete
                                 disablePortal
                                 id="combo-box-demo"
-                                options={marksList}
+                                options={cities}
                                 sx={{ background: "#E8EDF5", border: "0", width: "50%" }}
                                 renderInput={(params) => <TextField {...params} label='Город' />}
                             />
@@ -458,10 +564,29 @@ function CreateAdvert({ allMarks }) {
                         <h4>Номер телефона</h4>
 
                         <div className={styles['contact-form']}>
-                            <TextField label="+79002001111" sx={{
+                            {/* <TextField label="+7 (987) 654 32-10" sx={{
                                 width: "50%", background: "#E8EDF5", borderRadius: "7px",
                                 border: "none"
-                            }}></TextField>
+                            }}></TextField> */}
+
+                            <Controller
+                                name="state_number"
+                                control={control}
+                                pattern={/[А-Яа-яЁёA-Za-z]/}
+                                rules={{ required: true }}
+
+                                render={({ field }) => (
+                                    <InputMask
+                                        {...field}
+
+                                        mask="+9 (999) 999 99-99"
+                                        maskChar='_'
+                                        alwaysShowMask="false"
+                                        style={{ textTransform: "uppercase", color: "#78839E", padding: "12px 24px", fontSize: "24px", width: "300px", background: "#E8EDF5", border: "1px solid gray"}}
+                                        type="text"
+                                    />
+                                )}
+                            />
 
                             <div className={styles['contact-description']} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "250px" }}>
                                 <p>С</p>
@@ -485,12 +610,12 @@ function CreateAdvert({ allMarks }) {
 
                         <div className={styles['checkbox-form']}>
                             <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked />} label="Готов показать онлайн" />
+                                <FormControlLabel control={<Checkbox defaultChecked {...register("ready_to_show_online")}/>} label="Готов показать онлайн" />
                                 <p>Выберите, если готовы показать автомобиль покупателю по видеосвязи.</p>
                             </FormGroup>
 
                             <FormGroup>
-                                <FormControlLabel control={<Checkbox defaultChecked />} label="Общение только в чате" />
+                                <FormControlLabel control={<Checkbox defaultChecked {...register("communication_only_in_chat")}/>} label="Общение только в чате" />
                                 <p>Если вам неудобно принимать звонки покупателей, вы можете перевести всё общение в чат.
                                     Включите эту опцию, и на странице объявления не будет вашего телефона.</p>
                             </FormGroup>
@@ -507,7 +632,7 @@ function CreateAdvert({ allMarks }) {
                         }}
                         type="number"
                         id="price"
-                        onChange={e => handleChange(e)}
+                        {...register("price")}
                         />
                     </div>
 
@@ -518,7 +643,7 @@ function CreateAdvert({ allMarks }) {
                         width: "100%",
                         margin: "2.5em 0",
                         // padding: "13px 0"
-                    }}>Разместить объявление</Button>
+                    }} type="submit">Разместить объявление</Button>
 
                 </div>
 
@@ -526,7 +651,7 @@ function CreateAdvert({ allMarks }) {
                 {/* <div className={styles['filling-stroke']}>
 
                 </div> */}
-            </section>
+            </form>
 
         </Container>
     )

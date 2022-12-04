@@ -59,7 +59,7 @@ import Chat from '../Chat/Chat';
 export default function Header({ token, setToken, marks }) {
 
     const isTokenExist = () => {
-        if (document.cookie.indexOf("token") > 0) setIsAutorized(true);
+        if(localStorage.getItem('token')) setIsAutorized(true);
     }
 
     useEffect(() => {
@@ -420,27 +420,7 @@ export default function Header({ token, setToken, marks }) {
                                 Войти
                             </Button>
 
-                            <Dialog open={isOpen} onClose={handleClickClose}>
-                                {/* <DialogTitle>Subscribe</DialogTitle>
-                                <DialogContent>
-                                    <DialogContentText>
-                                        To subscribe to this website, please enter your email address here. We
-                                        will send updates occasionally.
-                                    </DialogContentText>
-                                    <TextField
-                                        autoFocus
-                                        margin="dense"
-                                        id="name"
-                                        label="Email Address"
-                                        type="email"
-                                        fullWidth
-                                        variant="standard"
-                                    />
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleClickClose}>Cancel</Button>
-                                    <Button onClick={handleClickClose}>Subscribe</Button>
-                                </DialogActions> */}
+                            <Dialog open={isOpen}  onClose={handleClickClose}>
                                 <Authorization setIsAutorized={setIsAutorized} setToken={setToken} />
                             </Dialog>
                         </React.Fragment>

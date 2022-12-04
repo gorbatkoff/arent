@@ -34,6 +34,7 @@ function Chat({ token, setState, state, marks }) {
                     "Authorization": `Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjY1OTU5NzMxfQ.8wPb078Fzvaozl49AF19qLtG1RyKWfH5OkWdhZip9ic`
                 }
             });
+
             setMessages(response.data);
 
         } catch (error) {
@@ -45,9 +46,34 @@ function Chat({ token, setState, state, marks }) {
         getMessages();
     }, []);
 
-    function handleChange(e){
+    function handleChange(e) {
         setMessageText(e.target.value);
         console.log(e.target.value)
+    }
+
+    async function handleSendMessage() {
+        try {
+
+            await axios.post(
+                "http://62.113.113.106/api/chat/send_message/",
+                {
+                    "owner": "3",
+                    "text": `${messageText}`,
+                    "chat": "1"
+                },
+                {
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjY1OTU5NzMxfQ.8wPb078Fzvaozl49AF19qLtG1RyKWfH5OkWdhZip9ic`
+                    }
+                }
+            );
+
+            await getMessages()
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -91,14 +117,14 @@ function Chat({ token, setState, state, marks }) {
                                 color: "#595b61",
                                 width: "450px",
                             }}
-                            onChange={(e) => handleChange(e)}
-                            placeholder="Напишите сообщение"
+                                onChange={(e) => handleChange(e)}
+                                placeholder="Напишите сообщение"
                             />
                         </div>
 
                         <div className={styles['send-message']}>
-                            <IconButton>
-                                <SendIcon color="#000"sx={{background: "#3069F7", color: "#fff", borderRadius: "50%", padding: "5px", fontSize: "40px"}}/>
+                            <IconButton onClick={() => handleSendMessage()}>
+                                <SendIcon color="#000" sx={{ background: "#3069F7", color: "#fff", borderRadius: "50%", padding: "5px", fontSize: "40px" }} />
                             </IconButton>
                         </div>
                     </div>

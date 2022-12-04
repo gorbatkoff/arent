@@ -1,6 +1,6 @@
 import React from 'react'
-import PublicationDate from '../../PublicationDate/PublicationDate';
-import Title from '../../Title/Title'
+import PublicationDate from '../../../PublicationDate/PublicationDate';
+import Title from '../../../Title/Title'
 import AdsButton from './AdsButton';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -16,7 +16,7 @@ import AdvertButton from './AdvertButton';
 import Ava from '../../../images/avatars/avatar.jpg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Characteristic from './Characteristic/Characteristic';
-import BasicButtons from '../../../UI/Button/BasicButton';
+import BasicButtons from '../../../../UI/Button/BasicButton';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';

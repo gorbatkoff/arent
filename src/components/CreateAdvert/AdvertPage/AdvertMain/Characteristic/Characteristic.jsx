@@ -2,14 +2,14 @@ import React from 'react'
 import styles from './Characteristic.module.css';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Insuranse from '../../../../images/Insuranse.svg';
-import AdvertButton from '../../../../UI/AdvertButton/AdvertButton';
+import AdvertButton from '../../../../../UI/AdvertButton/AdvertButton';
 import CheckCircle from '@mui/icons-material/CheckCircle';
 import LockIcon from '@mui/icons-material/Lock';
 
-import PromoCard from '../../../Promo/PromoCard/PromoCard';
+import PromoCard from '../../../../Promo/PromoCard/PromoCard';
 
 import { green, grey } from '@mui/material/colors';
-import BasicButtons from '../../../../UI/Button/BasicButton';
+import BasicButtons from '../../../../../UI/Button/BasicButton';
 
 export default function Characteristic({ advert }) {
     return (
